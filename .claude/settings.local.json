@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "c:\\IvanTyler\\semprogroup_test"
+    ],
+    "allow": [
+      "PowerShell(Get-ChildItem \"c:\\\\IvanTyler\\\\semprogroup_test\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName)"
+    ]
+  }
+}

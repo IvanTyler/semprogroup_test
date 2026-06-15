@@ -1,0 +1,18 @@
+.slideText {
+    &__wrapper {
+        display: inline-block;
+        overflow: hidden;
+        height: 1em;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        transition: transform var(--transition-duration);
+
+    }
+
+    &__contentAnimated {
+        transform: translateY(-50%);
+    }
+}
