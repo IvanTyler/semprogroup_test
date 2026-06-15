@@ -23,4 +23,6 @@ export const ApartmentSelect = () => {
                 height={8}
                 className={styles["apartment-select__icon"]}
             />
-        </butto
+        </button>
+    );
+};

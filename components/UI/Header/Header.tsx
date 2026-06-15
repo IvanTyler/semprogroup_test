@@ -56,4 +56,9 @@ export const Header = () => {
                     onMouseEnter={() => setOrderCallHovered(true)}
                     onMouseLeave={() => setOrderCallHovered(false)}
                 >
-    
+                    <SlideText animated={orderCallHovered}>заказать звонок</SlideText>
+                </div>
+            </Container>
+        </header>
+    );
+};

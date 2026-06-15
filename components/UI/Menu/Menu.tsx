@@ -14,4 +14,12 @@ export const Menu: FC<MenuProps> = ({ className }) => {
 
     return (
         <div
-            className={clsx(styles.menu, c
+            className={clsx(styles.menu, className)}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
+            <Burger animated={hovered} />
+            <span className={styles.menu__text}>МЕНЮ</span>
+        </div>
+    );
+};
