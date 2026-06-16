@@ -1,0 +1,29 @@
+.tel {
+    grid-area: tel;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    &__text {
+        font-weight: 600;
+        font-size: clamp(12px, calc(0.185vw + 11.33px), 14px);
+        line-height: 1;
+        letter-spacing: normal;
+        color: var(--color-foreground);
+        white-space: nowrap;
+    }
+
+    &__icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.telCircle {
+    width: clamp(41px, calc(0.49vw + 39.24px), 43px);
+    height: clamp(41px, calc(0.49vw + 39.24px), 43px);
+    border-radius: 50%;
+    border: 1px solid var(--color-primary);
+    justify-content: center;
+}

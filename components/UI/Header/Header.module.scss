@@ -1,7 +1,7 @@
 .header {
     position: sticky;
     top: 0;
-    padding: 29px 0;
+    padding: clamp(20px, calc(0.833vw + 17px), 29px) 0;
     z-index: 2;
     width: 100%;
     background-color: #fff;
@@ -20,28 +20,14 @@
 
     &__logo {
         display: block;
-        width: 156px;
-        height: 25px;
+        width: clamp(131px, calc(2.315vw + 122.67px), 156px);
+        height: clamp(21px, calc(0.37vw + 19.67px), 25px);
     }
 
     &__tel {
-        grid-area: tel;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 1;
-        letter-spacing: normal;
-        color: var(--color-foreground);
-        white-space: nowrap;
-    }
-
-    &__telText {
-        display: block;
-    }
-
-    &__telIcon {
-        display: none;
+        @media (max-width: 840px) {
+            margin-left: clamp(29px, 8.1vw, 62px);
+        }
     }
 
     &__orderCall {
@@ -54,38 +40,26 @@
         color: var(--color-primary);
         cursor: pointer;
         white-space: nowrap;
+
+        @media (max-width: 840px) {
+            display: none;
+        }
     }
 }
 
-// grid-area: menu   → Menu.module.scss (.menu)
-// grid-area: button → ApartmentSelect.module.scss (.apartment-select)
-// grid-area: logo, tel, order-call → выше
+// grid-area: menu   → Menu.module.scss
+// grid-area: button → ApartmentSelect.module.scss
+// grid-area: tel    → Tel.module.scss
 .containerHeader {
     display: grid;
     align-items: center;
-    justify-content: space-between;
-    grid-template-columns: 88px minmax(203px, auto) 1fr minmax(106px, auto) minmax(134px, auto);
+    grid-template-columns: auto auto 1fr auto auto;
     grid-template-areas: 'menu button logo tel order-call';
-    gap: 45px;
-    height: 100%;
+    gap: clamp(25px, calc(4.81vw - 24.25px), 45px);
 
-    @media (max-width: 1300px) {
-        grid-template-columns: 94px minmax(192px, auto) 1fr minmax(155px, auto) minmax(155px, auto);
-    }
-
-    @media (max-width: 1010px) {
-        grid-template-columns: 94px 42px 155px minmax(192px, 240px);
+    @media (max-width: 840px) {
+        grid-template-columns: auto auto 1fr auto;
         grid-template-areas: 'menu tel logo button';
-        gap: 35px;
-    }
-
-    @media (max-width: 690px) {
-        grid-template-columns: 94px 130px 42px;
-        grid-template-areas: 'menu logo tel';
-        gap: 20px;
-    }
-
-    @media (max-width: 370px) {
-        grid-template-columns: repeat(3, 1fr);
+        column-gap: 0;
     }
 }

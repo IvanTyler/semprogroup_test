@@ -2,7 +2,7 @@
     grid-area: menu;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: clamp(10px, calc(0.48vw + 5.08px), 12px);
     cursor: pointer;
 
     &__text {

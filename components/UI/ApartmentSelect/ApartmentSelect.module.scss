@@ -4,11 +4,11 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 15px 20px;
+    padding: clamp(13px, calc(0.185vw + 12.33px), 15px) clamp(16px, calc(0.37vw + 14.67px), 20px);
     line-height: 1;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 13px;
+    font-size: clamp(12px, calc(0.093vw + 11.67px), 13px);
     letter-spacing: 0.07em;
     color: #fff;
     background-color: var(--color-primary);

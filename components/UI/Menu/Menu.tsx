@@ -19,7 +19,7 @@ export const Menu: FC<MenuProps> = ({ className }) => {
             onMouseLeave={() => setHovered(false)}
         >
             <Burger animated={hovered} />
-            <span className={styles.menu__text}>МЕНЮ</span>
+            <span className={styles.menu__text}>меню</span>
         </div>
     );
 };

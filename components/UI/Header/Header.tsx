@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { clsx } from "clsx";
 import { Container } from "@/components/UI/Container/Container";
 import { Menu } from "@/components/UI/Menu/Menu";
 import { ApartmentSelect } from "@/components/UI/ApartmentSelect/ApartmentSelect";
 import { SlideText } from "@/components/UI/SlideText/SlideText";
+import { Tel } from "@/components/UI/Tel/Tel";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [orderCallHovered, setOrderCallHovered] = useState(false);
+    const { isMobileContent: isTelIcon } = useWindowWidth(840);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,26 +32,16 @@ export const Header = () => {
                 <ApartmentSelect />
 
                 <a href="/" className={styles.header__linkLogo}>
-                    <Image
+                    <img
                         src="/icon/logo.svg"
                         alt="inchapin"
                         width={156}
                         height={25}
                         className={styles.header__logo}
-                        priority
                     />
                 </a>
 
-                <a href="tel:+74955272121" className={styles.header__tel}>
-                    <span className={styles.header__telText}>+7 495 527 21 21</span>
-                    <Image
-                        src="/icon/phone.svg"
-                        alt="phone"
-                        width={20}
-                        height={20}
-                        className={styles.header__telIcon}
-                    />
-                </a>
+                <Tel isIcon={isTelIcon} className={styles.header__tel} />
 
                 <div
                     className={styles.header__orderCall}
