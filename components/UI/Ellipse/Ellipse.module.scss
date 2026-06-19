@@ -1,0 +1,18 @@
+.ellipse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    transform: translateX(50%);
+    width: clamp(87px, calc(11.7vw + 26.7px), 200px);
+    height: clamp(87px, calc(11.7vw + 26.7px), 200px);
+    border-radius: 50%;
+    background-color: var(--color-primary);
+
+
+    &__icon {
+        display: block;
+        width: clamp(20px, calc(3.24vw + 8.34px), 55px);
+        height: clamp(27px, calc(4.72vw + 10px), 78px);
+    }
+}

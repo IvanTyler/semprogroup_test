@@ -1,0 +1,45 @@
+.inchapin {
+    margin-top: clamp(20px, calc(2.78vw + 10px), 50px);
+    overflow: hidden;
+
+    &__text {
+        align-self: end;
+        font-weight: 400;
+        font-size: clamp(13px, calc(1.2vw + 8.68px), 26px);
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: var(--color-primary);
+
+        @media (max-width: 775px) {
+            font-size: clamp(13px, calc(3.13vw + 1.72px), 26px);
+        }
+    }
+
+    &__title {
+        font-weight: 400;
+        font-size: clamp(40px, 10vw, 187px);
+        line-height: 0.9;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--color-foreground);
+        width: 100%;
+        text-align: right;
+
+        @media (max-width: 775px) {
+            font-size: clamp(65px, 19vw, 145px);
+            text-align: left;
+        }
+    }
+}
+
+.containerInchapin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 30px;
+
+    @media (max-width: 775px) {
+        grid-template-columns: 1fr;
+        gap: clamp(10px, calc(3.68vw - 3.24px), 25px);
+    }
+}

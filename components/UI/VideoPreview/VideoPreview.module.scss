@@ -1,0 +1,102 @@
+.videoPreview {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, calc(1.39vw + 5px), 20px);
+    cursor: pointer;
+
+    &__wrapper {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__text {
+        font-weight: 600;
+        font-size: clamp(10px, 1vw, 14px);
+        line-height: 1.6;
+        text-transform: uppercase;
+        color: var(--color-foreground);
+        white-space: nowrap;
+    }
+
+    &__time {
+        font-weight: 400;
+        font-size: clamp(13px, 0.79vw, 14px);
+        line-height: 1.6;
+        color: var(--color-foreground);
+        opacity: 0.5;
+        white-space: nowrap;
+    }
+
+    &__line {
+        width: clamp(59px, 10vw, 109px);
+        height: 1px;
+        background-color: #d7d7d7;
+    }
+
+    &__circle {
+        position: relative;
+        flex-shrink: 0;
+        width: clamp(131px, 10vw, 186px);
+        height: clamp(131px, 10vw, 186px);
+        border-radius: 50%;
+        overflow: hidden;
+
+        &:hover {
+            .videoPreview__overlay {
+                background: rgba(47, 128, 237, 0.5);
+            }
+
+            .videoPreview__playRing {
+                transform: scale(1.1);
+                border-color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(47, 128, 237, 0.3);
+        transition: background var(--transition-duration);
+    }
+
+    &__play {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__playRing {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3.57px;
+        width: clamp(77px, 6vw, 110px);
+        height: clamp(77px, 6vw, 110px);
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 255, 255, 0.85);
+        transition: transform var(--transition-duration), border-color var(--transition-duration);
+    }
+
+    &__playIcon {
+        display: block;
+    }
+
+    &__playText {
+        font-weight: 400;
+        font-size: clamp(10px, 0.9vw, 18px);
+        line-height: 1.6;
+        text-transform: uppercase;
+        color: #fff;
+    }
+}

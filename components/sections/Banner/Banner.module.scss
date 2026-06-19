@@ -1,0 +1,31 @@
+.banner {
+    height: 100%;
+
+    @media (max-width: 775px) {
+        height: auto;
+    }
+
+    &__picture {
+        display: block;
+        height: 100%;
+
+        @media (max-width: 775px) {
+            height: clamp(313px, calc(42.65vw + 159.46px), 487px);
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.containerBanner {
+    height: 100%;
+
+    @media (max-width: 775px) {
+        height: auto;
+    }
+}

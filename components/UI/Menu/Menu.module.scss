@@ -5,6 +5,10 @@
     gap: clamp(10px, calc(0.48vw + 5.08px), 12px);
     cursor: pointer;
 
+    @media (max-width: 600px) {
+        justify-self: start;
+    }
+
     &__text {
         font-weight: 600;
         font-size: 13px;
@@ -13,5 +17,9 @@
         text-transform: uppercase;
         color: var(--color-foreground);
         white-space: nowrap;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
 }

@@ -1,0 +1,36 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: #fff;
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(60px, 10vw, 174px) clamp(20px, 4vw, 60px);
+
+    &__close {
+        color: #000;
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.enter {
+    opacity: 0;
+}
+
+.enterActive {
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive {
+    opacity: 0;
+    transition: opacity 300ms ease;
+}

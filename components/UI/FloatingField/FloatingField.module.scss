@@ -1,0 +1,31 @@
+.floatingField {
+    position: relative;
+    padding-top: clamp(20px, calc(0.37vw + 18.67px), 24px);
+
+    &__label {
+        position: absolute;
+        left: 0;
+        top: clamp(20px, calc(0.37vw + 18.67px), 24px);
+        font-weight: 400;
+        font-size: clamp(11px, calc(0.46vw + 9.33px), 16px);
+        line-height: 1.6;
+        text-transform: uppercase;
+        color: #000;
+        pointer-events: none;
+        transition: top 0.25s ease, font-size 0.25s ease, opacity 0.25s ease;
+
+        &--float {
+            top: 0;
+            font-size: clamp(9px, calc(0.185vw + 8.33px), 11px);
+            opacity: 0.6;
+        }
+    }
+
+    &__error {
+        display: block;
+        margin-top: 4px;
+        font-size: 10px;
+        color: #e53935;
+        text-transform: uppercase;
+    }
+}

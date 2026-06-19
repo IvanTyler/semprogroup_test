@@ -1,0 +1,104 @@
+.videoControls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 20px 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+
+    &_visible {
+        opacity: 1;
+    }
+
+    &__progress {
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        cursor: pointer;
+        margin-bottom: 12px;
+        position: relative;
+
+        &:hover {
+            height: 6px;
+        }
+    }
+
+    &__progressFill {
+        height: 100%;
+        background: #fff;
+        border-radius: 2px;
+        transition: width 0.1s linear;
+        pointer-events: none;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__btn {
+        background: none;
+        border: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.85;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__volume {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__volumeSlider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 70px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 2px;
+        outline: none;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        &::-moz-range-thumb {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            border: none;
+        }
+    }
+
+    &__time {
+        color: #fff;
+        font-size: 13px;
+        font-family: var(--font-family-base), Arial, sans-serif;
+        white-space: nowrap;
+        opacity: 0.85;
+    }
+}

@@ -1,7 +1,15 @@
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
     padding: clamp(20px, calc(0.833vw + 17px), 29px) 0;
+
+    @media (max-width: 775px) {
+        height: auto;
+    }
+
     z-index: 2;
     width: 100%;
     background-color: #fff;
@@ -27,6 +35,10 @@
     &__tel {
         @media (max-width: 840px) {
             margin-left: clamp(29px, 8.1vw, 62px);
+        }
+
+        @media (max-width: 600px) {
+            margin-left: 0;
         }
     }
 
@@ -60,6 +72,12 @@
     @media (max-width: 840px) {
         grid-template-columns: auto auto 1fr auto;
         grid-template-areas: 'menu tel logo button';
+        column-gap: 0;
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas: 'menu logo tel';
         column-gap: 0;
     }
 }

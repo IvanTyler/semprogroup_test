@@ -16,17 +16,16 @@ export const Tel: FC<TelProps> = ({ isIcon = false, className }) => {
             href="tel:+74955272121"
             className={clsx(styles.tel, isIcon && styles.telCircle, className)}
         >
-            {isIcon ? (
+            {isIcon ?
                 <Image
                     src="/icon/phone.svg"
                     alt="Позвонить"
                     width={14}
                     height={14}
                     className={styles.tel__icon}
-                />
-            ) : (
+                /> :
                 <span className={styles.tel__text}>+7 495 527 21 21</span>
-            )}
+            }
         </a>
     );
 };

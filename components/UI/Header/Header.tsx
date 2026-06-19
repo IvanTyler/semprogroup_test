@@ -7,29 +7,37 @@ import { Menu } from "@/components/UI/Menu/Menu";
 import { ApartmentSelect } from "@/components/UI/ApartmentSelect/ApartmentSelect";
 import { SlideText } from "@/components/UI/SlideText/SlideText";
 import { Tel } from "@/components/UI/Tel/Tel";
+import { Modal } from "@/components/UI/Modal/Modal";
+import { CallbackForm } from "@/components/UI/CallbackForm/CallbackForm";
+import { useScrollbar } from "@/components/providers/SmoothScrollProvider";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [orderCallHovered, setOrderCallHovered] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const scrollbar = useScrollbar();
+
     const { isMobileContent: isTelIcon } = useWindowWidth(840);
+    const { isMobileContent: isSmallScreen } = useWindowWidth(600);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(document.body.getBoundingClientRect().y < 0);
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        if (scrollbar) {
+            const handleScroll = ({ offset }: { offset: { x: number; y: number } }) => {
+                setScrolled(offset.y > 0);
+            };
+            scrollbar.addListener(handleScroll);
+            return () => scrollbar.removeListener(handleScroll);
+        }
+    }, [scrollbar]);
 
     return (
         <header className={clsx(styles.header, { [styles.header__scrolled]: scrolled })}>
             <Container className={styles.containerHeader}>
                 <Menu />
 
-                <ApartmentSelect />
+                <ApartmentSelect hidden={isSmallScreen} />
 
                 <a href="/" className={styles.header__linkLogo}>
                     <img
@@ -47,10 +55,15 @@ export const Header = () => {
                     className={styles.header__orderCall}
                     onMouseEnter={() => setOrderCallHovered(true)}
                     onMouseLeave={() => setOrderCallHovered(false)}
+                    onClick={() => setModalOpen(true)}
                 >
                     <SlideText animated={orderCallHovered}>заказать звонок</SlideText>
                 </div>
             </Container>
+
+            <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+                <CallbackForm />
+            </Modal>
         </header>
     );
 };
