@@ -32,16 +32,19 @@ export const VideoModal: FC<VideoModalProps> = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         const video = videoRef.current;
+        const container = nodeRef.current;
         if (!video) return;
         if (isOpen) {
             video.currentTime = 0;
             video.play().catch(() => {});
             setIsPlaying(true);
+            container?.requestFullscreen().catch(() => {});
         } else {
             video.pause();
             video.currentTime = 0;
             setIsPlaying(false);
             setCurrentTime(0);
+            if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
         }
     }, [isOpen]);
 
