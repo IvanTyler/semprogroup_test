@@ -16,8 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <Header />
-        <SmoothScrollProvider>
+        <SmoothScrollProvider header={<Header />}>
           {children}
         </SmoothScrollProvider>
       </body>
