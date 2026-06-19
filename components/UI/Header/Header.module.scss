@@ -15,10 +15,6 @@
     background-color: #fff;
     transition: box-shadow var(--transition-duration);
 
-    &__scrolled {
-        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-    }
-
     &__linkLogo {
         grid-area: logo;
         display: inline-block;

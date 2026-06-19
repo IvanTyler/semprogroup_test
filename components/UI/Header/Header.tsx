@@ -14,26 +14,15 @@ import { useWindowWidth } from "@/hooks/useWindowWidth";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
     const [orderCallHovered, setOrderCallHovered] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
-    const scrollbar = useScrollbar();
 
     const { isMobileContent: isTelIcon } = useWindowWidth(840);
     const { isMobileContent: isSmallScreen } = useWindowWidth(600);
 
-    useEffect(() => {
-        if (scrollbar) {
-            const handleScroll = ({ offset }: { offset: { x: number; y: number } }) => {
-                setScrolled(offset.y > 0);
-            };
-            scrollbar.addListener(handleScroll);
-            return () => scrollbar.removeListener(handleScroll);
-        }
-    }, [scrollbar]);
 
     return (
-        <header className={clsx(styles.header, { [styles.header__scrolled]: scrolled })}>
+        <header className={clsx(styles.header)}>
             <Container className={styles.containerHeader}>
                 <Menu />
 
