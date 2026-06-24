@@ -14,7 +14,9 @@ export const VideoPreview: FC<VideoPreviewProps> = ({ className }) => {
 
     return (
         <>
-            <div className={clsx(styles.videoPreview, className)} onClick={() => setIsVideoOpen(true)}>
+            <div
+                className={clsx(styles.videoPreview, className)}
+                onClick={() => setIsVideoOpen(true)}>
                 <div className={styles.videoPreview__wrapper}>
                     <span className={styles.videoPreview__text}>видео о проекте</span>
                     <span className={styles.videoPreview__time}>1:25 минут</span>

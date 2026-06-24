@@ -50,13 +50,11 @@ export const CallbackForm: FC = () => {
                         error={errors.name?.message}
                         hasValue={!!watchName}
                     >
-                        {() => (
-                            <input
-                                {...register("name")}
-                                className={clsx(styles.field__input, errors.name && styles["field__input--error"])}
-                                autoComplete="name"
-                            />
-                        )}
+                        <input
+                            {...register("name")}
+                            className={clsx(styles.field__input, errors.name && styles["field__input--error"])}
+                            autoComplete="name"
+                        />
                     </FloatingField>
 
                     <FloatingField
@@ -64,22 +62,20 @@ export const CallbackForm: FC = () => {
                         error={errors.phone?.message}
                         hasValue={!!watchPhone && watchPhone.length > 4}
                     >
-                        {() => (
-                            <Controller
-                                name="phone"
-                                control={control}
-                                render={({ field: { onChange, value, ref } }) => (
-                                    <IMaskInput
-                                        mask="+7 (000) 000-00-00"
-                                        value={value}
-                                        inputRef={ref}
-                                        onAccept={(val: string) => onChange(val)}
-                                        className={clsx(styles.field__input, errors.phone && styles["field__input--error"])}
-                                        autoComplete="tel"
-                                    />
-                                )}
-                            />
-                        )}
+                        <Controller
+                            name="phone"
+                            control={control}
+                            render={({ field: { onChange, value, ref } }) => (
+                                <IMaskInput
+                                    mask="+7 (000) 000-00-00"
+                                    value={value}
+                                    inputRef={ref}
+                                    onAccept={(val: string) => onChange(val)}
+                                    className={clsx(styles.field__input, errors.phone && styles["field__input--error"])}
+                                    autoComplete="tel"
+                                />
+                            )}
+                        />
                     </FloatingField>
 
                     <FloatingField
@@ -87,14 +83,12 @@ export const CallbackForm: FC = () => {
                         error={errors.email?.message}
                         hasValue={!!watchEmail}
                     >
-                        {() => (
-                            <input
-                                {...register("email")}
-                                type="email"
-                                className={clsx(styles.field__input, errors.email && styles["field__input--error"])}
-                                autoComplete="email"
-                            />
-                        )}
+                        <input
+                            {...register("email")}
+                            type="email"
+                            className={clsx(styles.field__input, errors.email && styles["field__input--error"])}
+                            autoComplete="email"
+                        />
                     </FloatingField>
                 </div>
 

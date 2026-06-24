@@ -9,7 +9,7 @@ interface FloatingFieldProps {
     error?: string;
     hasValue: boolean;
     className?: string;
-    children: (props: { focused: boolean }) => ReactNode;
+    children: ReactNode;
 }
 
 export const FloatingField: FC<FloatingFieldProps> = ({
@@ -31,7 +31,7 @@ export const FloatingField: FC<FloatingFieldProps> = ({
             <label className={clsx(styles.floatingField__label, isFloated && styles["floatingField__label--float"])}>
                 {label}
             </label>
-            {children({ focused })}
+            {children}
             {error && <span className={styles.floatingField__error}>{error}</span>}
         </div>
     );

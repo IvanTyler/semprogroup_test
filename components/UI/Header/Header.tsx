@@ -24,7 +24,7 @@ export const Header = () => {
 
     useEffect(() => {
         if (scrollbar) {
-            const handleScroll = ({ offset }: { offset: { x: number; y: number } }) => {
+            const handleScroll = ({ offset }: { offset: { y: number } }) => {
                 setScrolled(offset.y > 0);
             };
             scrollbar.addListener(handleScroll);
@@ -33,7 +33,7 @@ export const Header = () => {
     }, [scrollbar]);
 
     return (
-        <header className={clsx(styles.header, { [styles.header__scrolled]: scrolled })}>
+        <header className={clsx(styles.header, scrolled && styles.header__scrolled)}>
             <Container className={styles.containerHeader}>
                 <Menu />
 

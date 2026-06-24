@@ -7,10 +7,8 @@ interface IContainerProps {
     className?: string;
 }
 
-export const Container: FC<IContainerProps> = ({ children, className }) => {
-    return (
-        <div className={clsx(styles.container, className)}>
-            {children}
-        </div>
-    );
-};
+export const Container: FC<IContainerProps> = ({ children, className }) => (
+    <div className={clsx(styles.container, className)}>
+        {children}
+    </div>
+);

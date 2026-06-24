@@ -16,20 +16,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
     const [mounted, setMounted] = useState(false);
     const nodeRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, [isOpen]);
+    useEffect(() => { setMounted(true); }, []);
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {

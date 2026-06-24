@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { clsx } from "clsx";
 
 interface PictureSource {
     media: string;
@@ -21,10 +20,10 @@ export const Picture: FC<PictureProps> = ({
     className,
     imgClassName,
 }) => (
-    <picture className={clsx(className)}>
+    <picture className={className}>
         {sources.map((source) => (
             <source key={source.media} media={source.media} srcSet={source.srcSet} />
         ))}
-        <img src={src} alt={alt} className={clsx(imgClassName)} />
+        <img src={src} alt={alt} className={imgClassName} />
     </picture>
 );
